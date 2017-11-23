@@ -1,5 +1,5 @@
 ---
 applications:
- - name: GetStartedNode
+ - name: karteub
    host: karteub
    memory: 256M
