@@ -1,0 +1,5 @@
+---
+applications:
+ - name: GetStartedNode
+   host: karteuPrototype
+   memory: 256M
