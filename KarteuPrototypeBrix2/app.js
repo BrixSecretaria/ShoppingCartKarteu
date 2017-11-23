@@ -9,7 +9,20 @@ var express = require('express')
   , http = require('http')
   , path = require('path');
 
+var mongoose = require('mongoose');
+var config = require('./config');
 var app = express();
+
+var setupController = require('./controllers/setupController');
+var apiController = require('./controllers/apiController');
+
+//var port = process.env.PORT || 3000;
+
+mongoose.connect(config.getDbConnectionString(), {
+	useMongoClient:true
+});
+setupController(app);
+apiController(app);
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -29,6 +42,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
+//app.listen(port);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
