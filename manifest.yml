@@ -1,5 +1,5 @@
 ---
 applications:
- - name: karteunew
-   host: karteunew
+ - name: kariteun
+   host: kariteun
    memory: 128M
